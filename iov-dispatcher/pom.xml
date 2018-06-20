@@ -11,16 +11,18 @@
 
 	<artifactId>iov-dispatcher</artifactId>
 	<version>${iov.dispatcher.version}</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>iov-dispatcher</name>
 	<description></description>
+	<properties>
+        <skip_maven_deploy>true</skip_maven_deploy>
+    </properties>
+    <modules>
+        <module>iov-dispatcher-api</module>
+        <module>iov-dispatcher-default</module>
+    </modules>
 
-
-	<dependencies>
-
-
-	</dependencies>
 
 
 </project>

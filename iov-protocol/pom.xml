@@ -11,7 +11,7 @@
 
 	<artifactId>iov-protocol</artifactId>
 	<version>${iov.protocol.version}</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>iov-protocol</name>
 	<description></description>

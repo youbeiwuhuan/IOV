@@ -5,15 +5,15 @@
 
 	<parent>
 		<groupId>com.ybwh</groupId>
-	<artifactId>iov-parent</artifactId>
-	<version>${iov.parent.version}</version>
+	<artifactId>iov-dispatcher</artifactId>
+	<version>${iov.dispatcher.version}</version>
 	</parent>
 
-	<artifactId>iov-registry</artifactId>
-	<version>${iov.registry.version}</version>
-	<packaging>pom</packaging>
+	<artifactId>iov-dispatcher-default</artifactId>
+	<version>${iov.dispatcher.version}</version>
+	<packaging>jar</packaging>
 
-	<name>iov-registry</name>
+	<name>iov-dispatcher-default</name>
 	<description></description>
 
 
