@@ -8,11 +8,16 @@
 	<version>${iov.parent.version}</version>
 	<packaging>pom</packaging>
 	
-	<name>ehr-message</name>
-	<description>Shangde ehr message</description>
+	<name>iov-parent</name>
+	<description>Internet of Vehicles project framework</description>
 	
 	<modules>
-		
+		<module>iov-common</module>
+		<module>iov-dispatcher</module>
+		<module>iov-gateway</module>
+		<module>iov-protocol</module>
+		<module>iov-registry</module>
+		<module>iov-tranfer</module>
 	</modules>
 
 	
@@ -24,7 +29,12 @@
 		<java.version>1.8</java.version>
 		
 		<iov.parent.version>0.0.1-SNAPSHOT</iov.parent.version>
-		
+		<iov.common.version>0.0.1-SNAPSHOT</iov.common.version>
+		<iov.dispatcher.version>0.0.1-SNAPSHOT</iov.dispatcher.version>
+		<iov.gateway.version>0.0.1-SNAPSHOT</iov.gateway.version>
+		<iov.protocol.version>0.0.1-SNAPSHOT</iov.protocol.version>
+		<iov.registry.version>0.0.1-SNAPSHOT</iov.registry.version>
+		<iov.tranfer.version>0.0.1-SNAPSHOT</iov.tranfer.version>
 		
 		
 		<spring.verison>4.3.14.RELEASE</spring.verison>
@@ -67,9 +77,9 @@
 
 	<repositories>
 		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/libs-milestone</url>
+			<id>aliyun</id>
+			<name>aliyun</name>
+			<url>http://maven.aliyun.com/nexus/</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
