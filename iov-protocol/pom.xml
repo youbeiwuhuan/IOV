@@ -15,12 +15,13 @@
 
 	<name>iov-protocol</name>
 	<description></description>
-
-
-	<dependencies>
-
-
-	</dependencies>
+	<properties>
+		<skip_maven_deploy>true</skip_maven_deploy>
+	</properties>
+	<modules>
+		<module>iov-protocol-api</module>
+		<module>iov-protocol-demo</module>
+	</modules>
 
 
 </project>

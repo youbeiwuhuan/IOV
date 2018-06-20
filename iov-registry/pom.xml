@@ -15,12 +15,13 @@
 
 	<name>iov-registry</name>
 	<description></description>
-
-
-	<dependencies>
-
-
-	</dependencies>
+	<properties>
+		<skip_maven_deploy>true</skip_maven_deploy>
+	</properties>
+	<modules>
+		<module>iov-registry-api</module>
+		<module>iov-registry-default</module>
+	</modules>
 
 
 </project>
