@@ -1,90 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.ybwh</groupId>
-	<artifactId>iov-parent</artifactId>
-	<version>${iov.parent.version}</version>
-	<packaging>pom</packaging>
-	
-	<name>iov-parent</name>
-	<description>Internet of Vehicles project framework</description>
-	
-	<modules>
-		<module>iov-common</module>
-		<module>iov-dispatcher</module>
-		<module>iov-gateway</module>
-		<module>iov-protocol</module>
-		<module>iov-registry</module>
-		<module>iov-tranfer</module>
-	</modules>
+    <groupId>com.ybwh</groupId>
+    <artifactId>iov-parent</artifactId>
+    <version>${iov.parent.version}</version>
+    <packaging>pom</packaging>
 
-	
+    <name>iov-parent</name>
+    <description>Internet of Vehicles project framework</description>
+
+    <modules>
+        <module>iov-common</module>
+        <module>iov-dispatcher</module>
+        <module>iov-gateway</module>
+        <module>iov-protocol</module>
+        <module>iov-registry</module>
+        <module>iov-tranfer</module>
+    </modules>
 
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-		
-		<iov.parent.version>0.0.1-SNAPSHOT</iov.parent.version>
-		<iov.common.version>0.0.1-SNAPSHOT</iov.common.version>
-		<iov.dispatcher.version>0.0.1-SNAPSHOT</iov.dispatcher.version>
-		<iov.gateway.version>0.0.1-SNAPSHOT</iov.gateway.version>
-		<iov.protocol.version>0.0.1-SNAPSHOT</iov.protocol.version>
-		<iov.registry.version>0.0.1-SNAPSHOT</iov.registry.version>
-		<iov.tranfer.version>0.0.1-SNAPSHOT</iov.tranfer.version>
-		
-		
-		<spring.verison>4.3.14.RELEASE</spring.verison>
-		<spring.boot.verison>1.5.10.RELEASE</spring.boot.verison>
-		<log4j.verion>2.7</log4j.verion>
-		<mybatis.spring.boot.version>1.3.2</mybatis.spring.boot.version>
-		<mysql.connector.version>5.1.45</mysql.connector.version>
-		<druid.version>1.1.8</druid.version>
-		<fastjson.version>1.2.29</fastjson.version>
-		<commons.codec.version>1.11</commons.codec.version>
-		<commons.lang3.version>3.7</commons.lang3.version>
-		<elastic.job.lite.version>2.1.5</elastic.job.lite.version>
-		<slf4j.version>1.7.21</slf4j.version>
-		<junit.version>4.12</junit.version>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
 
-	<build>
-		
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<encoding>UTF-8</encoding>
-					<debug>true</debug>
-					<fork>true</fork>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-idea-plugin</artifactId>
-			</plugin>
+        <iov.parent.version>0.0.1-SNAPSHOT</iov.parent.version>
+        <iov.common.version>0.0.1-SNAPSHOT</iov.common.version>
+        <iov.dispatcher.version>0.0.1-SNAPSHOT</iov.dispatcher.version>
+        <iov.gateway.version>0.0.1-SNAPSHOT</iov.gateway.version>
+        <iov.protocol.version>0.0.1-SNAPSHOT</iov.protocol.version>
+        <iov.registry.version>0.0.1-SNAPSHOT</iov.registry.version>
+        <iov.tranfer.version>0.0.1-SNAPSHOT</iov.tranfer.version>
 
-		</plugins>
 
-	</build>
+        <netty4.version>4.1.25.Final</netty4.version>
+        <spring.verison>4.3.14.RELEASE</spring.verison>
+        <spring.boot.verison>1.5.10.RELEASE</spring.boot.verison>
+        <log4j.verion>2.7</log4j.verion>
+        <mybatis.spring.boot.version>1.3.2</mybatis.spring.boot.version>
+        <mysql.connector.version>5.1.45</mysql.connector.version>
+        <druid.version>1.1.8</druid.version>
+        <fastjson.version>1.2.29</fastjson.version>
+        <commons.codec.version>1.11</commons.codec.version>
+        <commons.lang3.version>3.7</commons.lang3.version>
+        <elastic.job.lite.version>2.1.5</elastic.job.lite.version>
+        <slf4j.version>1.7.21</slf4j.version>
+        <junit.version>4.12</junit.version>
+    </properties>
 
-	<repositories>
-		<repository>
-			<id>aliyun</id>
-			<name>aliyun</name>
-			<url>http://maven.aliyun.com/nexus/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+    <build>
 
-	
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <debug>true</debug>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-idea-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>http://maven.aliyun.com/nexus/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
 </project>

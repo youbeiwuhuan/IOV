@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.ybwh</groupId>
-	<artifactId>iov-parent</artifactId>
-	<version>${iov.parent.version}</version>
-	</parent>
+    <parent>
+        <groupId>com.ybwh</groupId>
+        <artifactId>iov-parent</artifactId>
+        <version>${iov.parent.version}</version>
+    </parent>
 
-	<artifactId>iov-protocol</artifactId>
-	<version>${iov.protocol.version}</version>
-	<packaging>pom</packaging>
+    <artifactId>iov-protocol</artifactId>
+    <version>${iov.protocol.version}</version>
+    <packaging>pom</packaging>
 
-	<name>iov-protocol</name>
-	<description></description>
-	<properties>
-		<skip_maven_deploy>true</skip_maven_deploy>
-	</properties>
-	<modules>
-		<module>iov-protocol-api</module>
-		<module>iov-protocol-demo</module>
-	</modules>
+    <name>iov-protocol</name>
+    <description></description>
+    <properties>
+        <skip_maven_deploy>true</skip_maven_deploy>
+    </properties>
+    <modules>
+        <module>iov-protocol-api</module>
+        <module>iov-protocol-demo</module>
+    </modules>
 
 
 </project>
