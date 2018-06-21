@@ -18,6 +18,7 @@ import java.util.Set;
  */
 public class DemoProtocolProcessor implements ProtocolProcessor {
 
+
     @Override
     public boolean support(String protocolName) {
         return false;
@@ -40,6 +41,11 @@ public class DemoProtocolProcessor implements ProtocolProcessor {
 
     @Override
     public List<PlainPackData> parseBinaryPack(BinaryPack binaryPack) {
+        return null;
+    }
+
+    @Override
+    public String getVehicleIdCode(BinaryPack binaryPack) {
         return null;
     }
 }

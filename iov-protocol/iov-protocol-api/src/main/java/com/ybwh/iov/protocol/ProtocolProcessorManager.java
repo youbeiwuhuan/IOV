@@ -68,32 +68,6 @@ public class ProtocolProcessorManager {
 
 
     /**
-     * 注册通讯协议
-     *
-     * @param protocolName 通讯协议名称（不可重复，否则会覆盖）
-     * @param processor    可以处理该通讯协议的解析器
-     */
-    public void registerProtocolProcessor(String protocolName, ProtocolProcessor processor) {
-        if (StringUtils.isBlank(protocolName) || null == processor) {
-            throw new IllegalArgumentException();
-        }
-
-        try {
-            try {
-                this.lock.writeLock().lockInterruptibly();
-
-                processorTable.put(protocolName, processor);
-
-            } finally {
-                this.lock.writeLock().unlock();
-            }
-        } catch (Exception e) {
-            logger.error("registerProtocolProcessor Exception", e);
-        }
-    }
-
-
-    /**
      * 获取通讯协议的解析器
      *
      * @return
@@ -103,20 +77,7 @@ public class ProtocolProcessorManager {
             throw new IllegalArgumentException();
         }
 
-        try {
-            try {
-                this.lock.readLock().lockInterruptibly();
-
-                return processorTable.get(protocolName);
-
-            } finally {
-                this.lock.readLock().unlock();
-            }
-        } catch (Exception e) {
-            logger.error("acquireProtocolProcessor Exception", e);
-        }
-
-        return null;
+        return processorTable.get(protocolName);
     }
 
 
@@ -126,20 +87,8 @@ public class ProtocolProcessorManager {
      * @return
      */
     public Collection<ProtocolProcessor> allProtocolProcessor() {
-        try {
-            try {
-                this.lock.readLock().lockInterruptibly();
 
-                return processorTable.values();
-
-            } finally {
-                this.lock.readLock().unlock();
-            }
-        } catch (Exception e) {
-            logger.error("allProtocolProcessor Exception", e);
-        }
-
-        return null;
+        return processorTable.values();
     }
 
 

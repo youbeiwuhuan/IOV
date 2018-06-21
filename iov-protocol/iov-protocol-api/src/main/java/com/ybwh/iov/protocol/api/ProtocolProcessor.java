@@ -56,4 +56,12 @@ public interface ProtocolProcessor {
      * @return
      */
     List<PlainPackData> parseBinaryPack(BinaryPack binaryPack);
+
+
+    /**
+     * 获取车辆唯一标志，有vin码返回vin-号码，有设备ID返回deviceId-号码
+     *
+     * @return
+     */
+    String getVehicleIdCode(BinaryPack binaryPack);
 }
