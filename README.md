@@ -7,7 +7,7 @@ Internet of Vehicles  project   framework
 	提供车载主设备连接通讯的模块
 	
 ## 车辆注册中心
-	实时反馈车辆车载主设备与哪台主机连接
+	实时反馈车辆车载主设备与哪台主机连接,功能类似rocketmq的nameserver,也将借鉴用rocketmq的nameserver的原理来实现
 
 
 
