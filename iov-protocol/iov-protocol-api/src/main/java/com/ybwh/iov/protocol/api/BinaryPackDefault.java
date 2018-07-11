@@ -14,8 +14,10 @@ import java.io.IOException;
  * @date: 2018/6/21 12:06
  * @Modified By:
  */
+@SuppressWarnings("restriction")
 public class BinaryPackDefault implements BinaryPack {
-    private static final BASE64Encoder encoder = new BASE64Encoder();
+   
+	private static final BASE64Encoder encoder = new BASE64Encoder();
     private static final BASE64Decoder decoder = new BASE64Decoder();
 
     private String protocolName;
@@ -33,7 +35,7 @@ public class BinaryPackDefault implements BinaryPack {
         return binary;
     }
 
-    @Override
+	@Override
     public String getBinaryBase64() {
         return encoder.encode(getBinary());
     }

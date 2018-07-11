@@ -3,6 +3,7 @@ package com.ybwh.iov.gateway.up;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.ybwh.iov.gateway.netty.NettyServerConfig;
 import com.ybwh.iov.gateway.util.RemotingUtil;
 
 import io.netty.bootstrap.ServerBootstrap;
@@ -31,13 +32,19 @@ public class IovGatewayHubServer {
      *  专门单独处理业务的线程池
      */
     private DefaultEventExecutorGroup defaultEventExecutorGroup;
+    
+	/**
+	 * netty的配置
+	 */
+	private NettyServerConfig nettyServerConfig;
 
 	public IovGatewayHubServer(ServerBootstrap serverBootstrap, EventLoopGroup eventLoopGroupSelector,
-			EventLoopGroup eventLoopGroupBoss, DefaultEventExecutorGroup defaultEventExecutorGroup) {
+			EventLoopGroup eventLoopGroupBoss, DefaultEventExecutorGroup defaultEventExecutorGroup,final NettyServerConfig nettyServerConfig) {
 		this.serverBootstrap = serverBootstrap;
 		this.eventLoopGroupSelector = eventLoopGroupSelector;
 		this.eventLoopGroupBoss = eventLoopGroupBoss;
 		this.defaultEventExecutorGroup = defaultEventExecutorGroup;
+		this.nettyServerConfig = nettyServerConfig;
 		
 		
 		this.eventLoopGroupBoss = new NioEventLoopGroup(1, new ThreadFactory() {
@@ -50,17 +57,17 @@ public class IovGatewayHubServer {
 		});
 
 		if (RemotingUtil.isLinuxPlatform() ) {
-			this.eventLoopGroupSelector = new EpollEventLoopGroup(nettyServerConfig.getServerSelectorThreads(),
+			this.eventLoopGroupSelector = this.eventLoopGroupSelector = new EpollEventLoopGroup(nettyServerConfig.getServerSelectorThreads(),
 					new ThreadFactory() {
-						private AtomicInteger threadIndex = new AtomicInteger(0);
-						private int threadTotal = nettyServerConfig.getServerSelectorThreads();
+				private AtomicInteger threadIndex = new AtomicInteger(0);
+				private int threadTotal = nettyServerConfig.getServerSelectorThreads();
 
-						@Override
-						public Thread newThread(Runnable r) {
-							return new Thread(r, String.format("NettyServerEPOLLSelector_%d_%d", threadTotal,
-									this.threadIndex.incrementAndGet()));
-						}
-					});
+				@Override
+				public Thread newThread(Runnable r) {
+					return new Thread(r, String.format("NettyServerEPOLLSelector_%d_%d", threadTotal,
+							this.threadIndex.incrementAndGet()));
+				}
+			});
 		} else {
 			this.eventLoopGroupSelector = new NioEventLoopGroup(nettyServerConfig.getServerSelectorThreads(),
 					new ThreadFactory() {

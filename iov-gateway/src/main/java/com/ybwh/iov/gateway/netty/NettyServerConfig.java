@@ -17,9 +17,8 @@
 package com.ybwh.iov.gateway.netty;
 
 /**
-
  *
- *
+ * netty的性能配置
  */
 public class NettyServerConfig implements Cloneable {
     private int listenPort = 8888;

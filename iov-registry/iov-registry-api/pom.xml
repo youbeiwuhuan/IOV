@@ -5,8 +5,8 @@
 
 	<parent>
 		<groupId>com.ybwh</groupId>
-	<artifactId>iov-registry</artifactId>
-	<version>${iov.registry.version}</version>
+		<artifactId>iov-registry</artifactId>
+		<version>${iov.registry.version}</version>
 	</parent>
 
 	<artifactId>iov-registry-api</artifactId>
@@ -18,7 +18,11 @@
 
 
 	<dependencies>
-
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.9</version>
+		</dependency>
 
 	</dependencies>
 

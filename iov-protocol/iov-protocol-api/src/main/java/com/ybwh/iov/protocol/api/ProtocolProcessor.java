@@ -34,7 +34,7 @@ public interface ProtocolProcessor {
      * 从二进制数据流中识别协议返回通讯协议名称，如果不能识别出协议则返回空。
      * 各个解析器只能识别出supportProtocols返回的协议。不可丢弃任何数据
      *
-     * @param dataStream 二进制数据流
+     * @param dataStream 只读的二进制数据流
      * @return
      */
     String verifyProtocol(ReadOnlyByteBuf dataStream);
