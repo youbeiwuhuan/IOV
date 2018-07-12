@@ -60,7 +60,7 @@ public class VerifyProtocolHandler extends ChannelInboundHandlerAdapter {
         }
 
         /**
-         * 没能识别出协议说明还没读到一个完整包，还需累积字节
+         * 没能识别出协议说明还没读到一个正确的完整包，还需累积字节
          */
         cumulation.writeBytes(byteBuf);
         byteBuf.release();

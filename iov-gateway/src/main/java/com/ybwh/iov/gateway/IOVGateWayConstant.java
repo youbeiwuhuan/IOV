@@ -8,5 +8,9 @@ package com.ybwh.iov.gateway;
  * @Modified By:
  */
 public class IOVGateWayConstant {
+	
+    /**
+     * 通道关联的协议解析器
+     */
     public static String CHANNEL_PROTOCOL_PROCESSOR = "channel_protocol_processor";
 }
