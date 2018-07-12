@@ -25,12 +25,12 @@ public class IovGatewayHubServer {
      */
     private  EventLoopGroup eventLoopGroupSelector;
     /**
-     * 处理分发的线程池
+     * 处理IO分发的线程池
      */
     private EventLoopGroup eventLoopGroupBoss;
 
     /**
-     *  专门单独处理业务的线程池
+     *  专门单独处理业务逻辑的线程池
      */
     private DefaultEventExecutorGroup defaultEventExecutorGroup;
     
@@ -47,7 +47,7 @@ public class IovGatewayHubServer {
 		this.defaultEventExecutorGroup = defaultEventExecutorGroup;
 		this.nettyServerConfig = nettyServerConfig;
 		
-		
+		//
 		this.eventLoopGroupBoss = new NioEventLoopGroup(1, new ThreadFactory() {
 			private AtomicInteger threadIndex = new AtomicInteger(0);
 
@@ -57,7 +57,7 @@ public class IovGatewayHubServer {
 			}
 		});
 
-		if (RemotingUtil.isLinuxPlatform() ) {
+		if (RemotingUtil.isLinuxPlatform() ) {//Linux平台使用系统调用epoll提高效率
 			this.eventLoopGroupSelector = this.eventLoopGroupSelector = new EpollEventLoopGroup(nettyServerConfig.getServerSelectorThreads(),
 					new ThreadFactory() {
 				private AtomicInteger threadIndex = new AtomicInteger(0);
