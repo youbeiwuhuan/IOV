@@ -72,21 +72,25 @@ public class ExtensionUtils {
 
                                 //处理注释
                                 final int ci = line.indexOf('#');
-                                if (ci >= 0)
+                                if (ci >= 0) {
                                     line = line.substring(0, ci);
+                                }
                                 line = line.trim();
 
 
                                 if (line.length() > 0) {
                                     try {
-                                        String name = null;//扩展名称
+                                        //扩展名称
+                                        String extensionName = null;
+                                        String extensionClass = null;
                                         int i = line.indexOf('=');
                                         if (i > 0) {
-                                            name = line.substring(0, i).trim();
-                                            line = line.substring(i + 1).trim();//获取扩展类名称
+                                            extensionName = line.substring(0, i).trim();
+                                            //获取扩展类名称
+                                            extensionClass = line.substring(i + 1).trim();
                                         }
-                                        if (line.length() > 0) {
-                                            Class<?> clazz = Class.forName(line, true, classLoader);
+                                        if (null != extensionClass && extensionClass.length() > 0) {
+                                            Class<?> clazz = Class.forName(extensionClass, true, classLoader);
                                             if (!type.isAssignableFrom(clazz)) {
                                                 throw new IllegalStateException("Error when load extension class(interface: " +
                                                         type + ", class line: " + clazz.getName() + "), class "
@@ -94,7 +98,7 @@ public class ExtensionUtils {
                                             }
 
 
-                                            extensionClasses.put(name, clazz);
+                                            extensionClasses.put(extensionName, clazz);
 
                                         }
                                     } catch (Throwable t) {

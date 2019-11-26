@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -32,6 +33,9 @@ public class ProtocolProcessorManager {
 
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
 
+    /**
+     * 初始化后只读所以不需要用ConcurrentHashMap
+     */
     private HashMap<String/*协议名称*/, Class<?>> processorClasseTable = new HashMap<String, Class<?>>();
     private HashMap<String/*协议名称*/, ProtocolProcessor> processorTable = new HashMap<String, ProtocolProcessor>();
 
@@ -39,7 +43,9 @@ public class ProtocolProcessorManager {
         init();
     }
 
-    private void init() {// synchronized in getInstance
+    // synchronized in getInstance
+    private void init() {
+
         ExtensionUtils.loadFile(processorClasseTable, PROTOCOL_PROCESSOR_DIRECTORY, ProtocolProcessor.class);
         if (processorClasseTable.size() > 0) {
             for (Map.Entry<String, Class<?>> entry : processorClasseTable.entrySet()) {
@@ -87,7 +93,6 @@ public class ProtocolProcessorManager {
      * @return
      */
     public Collection<ProtocolProcessor> allProtocolProcessor() {
-
         return processorTable.values();
     }
 

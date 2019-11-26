@@ -33,7 +33,7 @@ import io.netty.util.concurrent.DefaultEventExecutorGroup;
  * @date: 2018/6/21 12:51
  * @Modified By:
  */
-public class IovGatewayHubServer {
+public class   IovGatewayHubServer {
 	private static Logger logger = LoggerFactory.getLogger(IovGatewayHubServer.class);
 	
 	
